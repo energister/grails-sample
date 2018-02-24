@@ -34,10 +34,10 @@ class RatesControllerSpec extends Specification implements ControllerUnitTest<Ra
 
     void "form rates table for the last month"() {
         when:
-        def ratesTable = controller.index(null)
+        controller.index()
 
         then:
-        ratesTable.size() > 28
+        response.text.size() > 0
         downloadsCount > 28
     }
 }
