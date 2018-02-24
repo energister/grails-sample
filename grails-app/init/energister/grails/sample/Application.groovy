@@ -1,4 +1,4 @@
-package grails.sample
+package energister.grails.sample
 
 import grails.boot.GrailsApp
 import grails.boot.config.GrailsAutoConfiguration

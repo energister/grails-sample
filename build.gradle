@@ -30,6 +30,9 @@ repositories {
 }
 
 dependencies {
+    compile "org.jsoup:jsoup:1.11.2"
+    compile 'org.ccil.cowan.tagsoup:tagsoup:1.2.1'
+
     compile "org.springframework.boot:spring-boot-starter-logging"
     compile "org.springframework.boot:spring-boot-autoconfigure"
     compile "org.grails:grails-core"

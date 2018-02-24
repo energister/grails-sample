@@ -1,4 +1,4 @@
-package grails.sample
+package energister.grails.sample
 
 class UrlMappings {
 
@@ -9,7 +9,7 @@ class UrlMappings {
             }
         }
 
-        "/"(view:"/index")
+        "/"(controller:"rates")
         "500"(view:'/error')
         "404"(view:'/notFound')
     }

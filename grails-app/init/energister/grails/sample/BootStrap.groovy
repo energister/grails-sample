@@ -1,4 +1,4 @@
-package grails.sample
+package energister.grails.sample
 
 class BootStrap {
 
