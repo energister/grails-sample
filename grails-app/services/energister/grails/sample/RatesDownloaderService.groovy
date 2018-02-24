@@ -1,7 +1,6 @@
 package energister.grails.sample
 
 import groovy.transform.TupleConstructor
-import org.ccil.cowan.tagsoup.Parser
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
@@ -35,16 +34,6 @@ class RatesDownloaderService {
 
     private static final pageWithDataUrl = 'https://www.cbr.ru/eng/currency_base/daily.aspx?date_req='
 
-    private def parser = new XmlParser(new Parser())
-
-    RatesDownloaderService() {
-        // workaround for the org.xml.sax.SAXParseException : DOCTYPE is disallowed when the feature "http://apache.org/xml/features/disallow-doctype-decl" set to true
-        // (defence against quadratic blowup attack - see also https://groups.google.com/forum/#!topic/play-framework/2mtqhoKLn4Q )
-        // TODO replace by the code which removes <!DOCTYPE from page
-//        parser.setFeature("http://apache.org/xml/features/disallow-doctype-decl", false)
-//        parser.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
-    }
-
     /**
      * @return rates at the {@code date} or throws an exception
      */
@@ -55,10 +44,6 @@ class RatesDownloaderService {
         String url = pageWithDataUrl + dateParameter
 
         log.debug "Parsing $url"
-        //def page = parser.parse(url)
-        // TODO
-        def page = parser.parse(new File("c:\\Users\\Admin\\Downloads\\page.html"))
-
         Document doc = Jsoup.connect(url).get()
 
         def rates = new ArrayList<CentralBankCurrencyRate>()
